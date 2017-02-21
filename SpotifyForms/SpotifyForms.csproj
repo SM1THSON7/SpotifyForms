@@ -36,16 +36,13 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\..\..\Downloads\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SpotifyAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpotifyAPI-NET.2.12.0\lib\SpotifyAPI.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,8 +60,72 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Local\Enums\AlbumArtSize.cs" />
+    <Compile Include="Local\ExtendedWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Local\LocalEvents.cs" />
+    <Compile Include="Local\Models\CFID.cs" />
+    <Compile Include="Local\Models\OpenGraphState.cs" />
+    <Compile Include="Local\Models\SpotifyResource.cs" />
+    <Compile Include="Local\Models\SpotifyUri.cs" />
+    <Compile Include="Local\Models\StatusResponse.cs" />
+    <Compile Include="Local\Models\Track.cs" />
+    <Compile Include="Local\Models\TrackResourceLocation.cs" />
+    <Compile Include="Local\RemoteHandler.cs" />
+    <Compile Include="Local\SpotifyLocalAPI.cs" />
+    <Compile Include="Local\VolumeMixerControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Auth\AutorizationCodeAuth.cs" />
+    <Compile Include="Web\Auth\ClientCredentialsAuth.cs" />
+    <Compile Include="Web\Auth\ImplicitGrantAuth.cs" />
+    <Compile Include="Web\Auth\WebApiFactory.cs" />
+    <Compile Include="Web\Enums\AlbumType.cs" />
+    <Compile Include="Web\Enums\FollowType.cs" />
+    <Compile Include="Web\Enums\Scope.cs" />
+    <Compile Include="Web\Enums\SearchType.cs" />
+    <Compile Include="Web\Enums\TimeRangeType.cs" />
+    <Compile Include="Web\IClient.cs" />
+    <Compile Include="Web\Models\ArrayResponse.cs" />
+    <Compile Include="Web\Models\AudioFeatures.cs" />
+    <Compile Include="Web\Models\BasicModel.cs" />
+    <Compile Include="Web\Models\Category.cs" />
+    <Compile Include="Web\Models\CategoryList.cs" />
+    <Compile Include="Web\Models\CategoryPlaylist.cs" />
+    <Compile Include="Web\Models\CursorPaging.cs" />
+    <Compile Include="Web\Models\FeaturedPlaylists.cs" />
+    <Compile Include="Web\Models\FollowedArtists.cs" />
+    <Compile Include="Web\Models\FullAlbum.cs" />
+    <Compile Include="Web\Models\FullArtist.cs" />
+    <Compile Include="Web\Models\FullPlaylist.cs" />
+    <Compile Include="Web\Models\FullTrack.cs" />
+    <Compile Include="Web\Models\GeneralModels.cs" />
+    <Compile Include="Web\Models\NewAlbumReleases.cs" />
+    <Compile Include="Web\Models\Paging.cs" />
+    <Compile Include="Web\Models\PrivateProfile.cs" />
+    <Compile Include="Web\Models\PublicProfile.cs" />
+    <Compile Include="Web\Models\Recommendations.cs" />
+    <Compile Include="Web\Models\RecommendationSeed .cs" />
+    <Compile Include="Web\Models\RecommendationSeedGenres.cs" />
+    <Compile Include="Web\Models\ResponseInfo.cs" />
+    <Compile Include="Web\Models\SearchItem.cs" />
+    <Compile Include="Web\Models\SeveralAlbums.cs" />
+    <Compile Include="Web\Models\SeveralArtists.cs" />
+    <Compile Include="Web\Models\SeveralAudioFeatures.cs" />
+    <Compile Include="Web\Models\SeveralTracks.cs" />
+    <Compile Include="Web\Models\SimpleAlbum.cs" />
+    <Compile Include="Web\Models\SimpleArtist.cs" />
+    <Compile Include="Web\Models\SimplePlaylist.cs" />
+    <Compile Include="Web\Models\SimpleTrack.cs" />
+    <Compile Include="Web\Models\Snapshot.cs" />
+    <Compile Include="Web\Models\Token.cs" />
+    <Compile Include="Web\Models\TuneableTrack.cs" />
+    <Compile Include="Web\SimpleHttpServer.cs" />
+    <Compile Include="Web\SpotifyWebAPI.cs" />
+    <Compile Include="Web\SpotifyWebBuilder.cs" />
+    <Compile Include="Web\SpotifyWebClient.cs" />
+    <Compile Include="Web\Util.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +162,7 @@
   <ItemGroup>
     <None Include="Resources\spotify-logo1.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
