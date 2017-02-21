@@ -63,9 +63,11 @@ namespace SpotifyForms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap images {
+
             get {
-                object obj = ResourceManager.GetObject("images", resourceCulture);
+                object obj = ResourceManager.GetObject("radio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -79,5 +81,17 @@ namespace SpotifyForms.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spotify_logo {
+            get {
+                object obj = ResourceManager.GetObject("spotify-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
     }
 }
