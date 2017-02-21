@@ -39,8 +39,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlBrowse = new System.Windows.Forms.Panel();
+            this.pnlMusic = new System.Windows.Forms.Panel();
+            this.lstMusic = new System.Windows.Forms.ListBox();
+            this.lblLogin = new ns1.BunifuCustomLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnlBrowse.SuspendLayout();
+            this.pnlMusic.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -165,6 +170,7 @@
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // btnBrowse
             // 
@@ -201,6 +207,7 @@
             this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBrowse.Textcolor = System.Drawing.Color.White;
             this.btnBrowse.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnRadio
             // 
@@ -249,6 +256,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblLogin);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(236, 0);
@@ -269,11 +277,42 @@
             // 
             // pnlBrowse
             // 
+            this.pnlBrowse.Controls.Add(this.pnlMusic);
             this.pnlBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBrowse.Location = new System.Drawing.Point(236, 100);
             this.pnlBrowse.Name = "pnlBrowse";
             this.pnlBrowse.Size = new System.Drawing.Size(690, 432);
             this.pnlBrowse.TabIndex = 2;
+            // 
+            // pnlMusic
+            // 
+            this.pnlMusic.Controls.Add(this.lstMusic);
+            this.pnlMusic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMusic.Location = new System.Drawing.Point(0, 0);
+            this.pnlMusic.Name = "pnlMusic";
+            this.pnlMusic.Size = new System.Drawing.Size(690, 432);
+            this.pnlMusic.TabIndex = 0;
+            // 
+            // lstMusic
+            // 
+            this.lstMusic.FormattingEnabled = true;
+            this.lstMusic.ItemHeight = 16;
+            this.lstMusic.Location = new System.Drawing.Point(6, 23);
+            this.lstMusic.Name = "lstMusic";
+            this.lstMusic.Size = new System.Drawing.Size(487, 388);
+            this.lstMusic.TabIndex = 0;
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.White;
+            this.lblLogin.Location = new System.Drawing.Point(600, 9);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(55, 20);
+            this.lblLogin.TabIndex = 1;
+            this.lblLogin.Text = "Login";
             // 
             // Form1
             // 
@@ -285,11 +324,15 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Spotify";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.pnlBrowse.ResumeLayout(false);
+            this.pnlMusic.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -306,6 +349,9 @@
         private ns1.BunifuFlatButton bunifuFlatButton1;
         private ns1.BunifuFlatButton bunifuFlatButton3;
         private System.Windows.Forms.Panel pnlBrowse;
+        private System.Windows.Forms.Panel pnlMusic;
+        private System.Windows.Forms.ListBox lstMusic;
+        private ns1.BunifuCustomLabel lblLogin;
     }
 }
 
