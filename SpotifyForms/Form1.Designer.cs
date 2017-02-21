@@ -37,15 +37,24 @@
             this.btnRadio = new ns1.BunifuFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblLogin = new ns1.BunifuCustomLabel();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlBrowse = new System.Windows.Forms.Panel();
             this.pnlMusic = new System.Windows.Forms.Panel();
-            this.lstMusic = new System.Windows.Forms.ListBox();
-            this.lblLogin = new ns1.BunifuCustomLabel();
+            this.savedTracksCountLabel = new System.Windows.Forms.Label();
+            this.playlistsCountLabel = new System.Windows.Forms.Label();
+            this.playlistsListBox = new System.Windows.Forms.ListBox();
+            this.lstMusic = new System.Windows.Forms.ListView();
+            this.displayNameLabel = new System.Windows.Forms.Label();
+            this.countryLabel = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.accountLabel = new System.Windows.Forms.Label();
+            this.avatarPictureBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlBrowse.SuspendLayout();
             this.pnlMusic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -256,13 +265,30 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.accountLabel);
+            this.panel2.Controls.Add(this.avatarPictureBox);
+            this.panel2.Controls.Add(this.emailLabel);
             this.panel2.Controls.Add(this.lblLogin);
             this.panel2.Controls.Add(this.btnClose);
+            this.panel2.Controls.Add(this.displayNameLabel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(236, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(690, 100);
             this.panel2.TabIndex = 1;
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.White;
+            this.lblLogin.Location = new System.Drawing.Point(600, 9);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(55, 20);
+            this.lblLogin.TabIndex = 1;
+            this.lblLogin.Text = "Login";
+            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
             // btnClose
             // 
@@ -286,33 +312,99 @@
             // 
             // pnlMusic
             // 
+            this.pnlMusic.Controls.Add(this.countryLabel);
             this.pnlMusic.Controls.Add(this.lstMusic);
+            this.pnlMusic.Controls.Add(this.playlistsListBox);
+            this.pnlMusic.Controls.Add(this.playlistsCountLabel);
+            this.pnlMusic.Controls.Add(this.savedTracksCountLabel);
             this.pnlMusic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMusic.Location = new System.Drawing.Point(0, 0);
             this.pnlMusic.Name = "pnlMusic";
             this.pnlMusic.Size = new System.Drawing.Size(690, 432);
             this.pnlMusic.TabIndex = 0;
             // 
+            // savedTracksCountLabel
+            // 
+            this.savedTracksCountLabel.AutoSize = true;
+            this.savedTracksCountLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.savedTracksCountLabel.Location = new System.Drawing.Point(61, 90);
+            this.savedTracksCountLabel.Name = "savedTracksCountLabel";
+            this.savedTracksCountLabel.Size = new System.Drawing.Size(46, 17);
+            this.savedTracksCountLabel.TabIndex = 1;
+            this.savedTracksCountLabel.Text = "label1";
+            // 
+            // playlistsCountLabel
+            // 
+            this.playlistsCountLabel.AutoSize = true;
+            this.playlistsCountLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.playlistsCountLabel.Location = new System.Drawing.Point(112, 193);
+            this.playlistsCountLabel.Name = "playlistsCountLabel";
+            this.playlistsCountLabel.Size = new System.Drawing.Size(46, 17);
+            this.playlistsCountLabel.TabIndex = 2;
+            this.playlistsCountLabel.Text = "label1";
+            // 
+            // playlistsListBox
+            // 
+            this.playlistsListBox.FormattingEnabled = true;
+            this.playlistsListBox.ItemHeight = 16;
+            this.playlistsListBox.Location = new System.Drawing.Point(547, 174);
+            this.playlistsListBox.Name = "playlistsListBox";
+            this.playlistsListBox.Size = new System.Drawing.Size(120, 84);
+            this.playlistsListBox.TabIndex = 3;
+            // 
             // lstMusic
             // 
-            this.lstMusic.FormattingEnabled = true;
-            this.lstMusic.ItemHeight = 16;
-            this.lstMusic.Location = new System.Drawing.Point(6, 23);
+            this.lstMusic.Location = new System.Drawing.Point(534, 23);
             this.lstMusic.Name = "lstMusic";
-            this.lstMusic.Size = new System.Drawing.Size(487, 388);
-            this.lstMusic.TabIndex = 0;
+            this.lstMusic.Size = new System.Drawing.Size(121, 97);
+            this.lstMusic.TabIndex = 4;
+            this.lstMusic.UseCompatibleStateImageBehavior = false;
             // 
-            // lblLogin
+            // displayNameLabel
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(600, 9);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(55, 20);
-            this.lblLogin.TabIndex = 1;
-            this.lblLogin.Text = "Login";
+            this.displayNameLabel.AutoSize = true;
+            this.displayNameLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.displayNameLabel.Location = new System.Drawing.Point(101, 12);
+            this.displayNameLabel.Name = "displayNameLabel";
+            this.displayNameLabel.Size = new System.Drawing.Size(0, 17);
+            this.displayNameLabel.TabIndex = 5;
+            // 
+            // countryLabel
+            // 
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.countryLabel.Location = new System.Drawing.Point(250, 113);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(46, 17);
+            this.countryLabel.TabIndex = 6;
+            this.countryLabel.Text = "label2";
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.emailLabel.Location = new System.Drawing.Point(101, 39);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(0, 17);
+            this.emailLabel.TabIndex = 7;
+            // 
+            // accountLabel
+            // 
+            this.accountLabel.AutoSize = true;
+            this.accountLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.accountLabel.Location = new System.Drawing.Point(101, 61);
+            this.accountLabel.Name = "accountLabel";
+            this.accountLabel.Size = new System.Drawing.Size(0, 17);
+            this.accountLabel.TabIndex = 8;
+            // 
+            // avatarPictureBox
+            // 
+            this.avatarPictureBox.Location = new System.Drawing.Point(11, 9);
+            this.avatarPictureBox.Name = "avatarPictureBox";
+            this.avatarPictureBox.Size = new System.Drawing.Size(73, 69);
+            this.avatarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatarPictureBox.TabIndex = 9;
+            this.avatarPictureBox.TabStop = false;
             // 
             // Form1
             // 
@@ -333,6 +425,8 @@
             this.panel2.PerformLayout();
             this.pnlBrowse.ResumeLayout(false);
             this.pnlMusic.ResumeLayout(false);
+            this.pnlMusic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,8 +444,16 @@
         private ns1.BunifuFlatButton bunifuFlatButton3;
         private System.Windows.Forms.Panel pnlBrowse;
         private System.Windows.Forms.Panel pnlMusic;
-        private System.Windows.Forms.ListBox lstMusic;
         private ns1.BunifuCustomLabel lblLogin;
+        private System.Windows.Forms.Label savedTracksCountLabel;
+        private System.Windows.Forms.Label playlistsCountLabel;
+        private System.Windows.Forms.ListView lstMusic;
+        private System.Windows.Forms.ListBox playlistsListBox;
+        private System.Windows.Forms.Label accountLabel;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.Label countryLabel;
+        private System.Windows.Forms.Label displayNameLabel;
+        private System.Windows.Forms.PictureBox avatarPictureBox;
     }
 }
 

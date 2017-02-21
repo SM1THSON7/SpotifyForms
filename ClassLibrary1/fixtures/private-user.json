@@ -1,0 +1,21 @@
+{
+  "display_name": "Curtis Smithson",
+  "external_urls": {
+    "spotify": "https://open.spotify.com/user/118620057"
+  },
+  "followers": {
+    "href": null,
+    "total": 16
+  },
+  "href": "https://api.spotify.com/v1/users/118620057",
+  "id": "118620057",
+  "images": [
+    {
+      "height": null,
+      "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/15590304_10154277702693691_5525146990260912266_n.jpg?oh=46d0cd18e3c8126f74b478395fb4e960&oe=59427DA7",
+      "width": null
+    }
+  ],
+  "type": "user",
+  "uri": "spotify:user:118620057"
+}
