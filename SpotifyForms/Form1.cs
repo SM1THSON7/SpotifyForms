@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpotifyAPI.Web;
@@ -13,6 +10,9 @@ using SpotifyAPI.Web.Enums;
 using SpotifyAPI.Web.Models;
 using System.Net;
 using System.IO;
+using SpotifyAPI.Local;
+using SpotifyAPI.Local.Enums;
+using SpotifyAPI.Local.Models;
 using Image = System.Drawing.Image;
 
 
@@ -21,15 +21,22 @@ namespace SpotifyForms
     public partial class Form1 : Form
     {
         private SpotifyWebAPI _spotify;
+        private readonly SpotifyLocalAPI _spotifyLocal;
+        private Track _currentTrack;
 
         private PrivateProfile _profile;
         private List<FullTrack> _savedTracks;
         private List<SimplePlaylist> _playlists;
 
+      
+
         public Form1()
         {
             InitializeComponent();
-            
+            pnlBrowse.Visible = true;
+            pnlRadio.Visible = false;
+            pnlPlaylists.Visible = false;
+            pnlMusic.Visible = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -70,7 +77,7 @@ namespace SpotifyForms
         {
             Task.Run(() => RunAuthentication());
 
-            lblLogin.Visible = false;
+            lblLogin.Text = "Logged In";
         }
 
         private async void RunAuthentication()
@@ -181,6 +188,108 @@ namespace SpotifyForms
         private void txtSearch_OnTextChange(object sender, EventArgs e)
         {
            
+        }
+
+        private async void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            await _spotifyLocal.Play();
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+             _spotifyLocal.Previous();
+        }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+            _spotifyLocal.Skip();
+        }
+
+        public async void UpdateTrack(Track track)
+        {
+            _currentTrack = track;
+
+            //advertLabel.Text = track.IsAd() ? "ADVERT" : "";
+            progressBar1.Maximum = track.Length;
+
+            if (track.IsAd())
+                return; //Don't process further, maybe null values
+
+            lblTitle.Text = track.TrackResource.Name;
+            lblTitle.Tag = track.TrackResource.Uri;
+
+            lblArtist.Text = track.ArtistResource.Name;
+            lblArtist.Tag = track.ArtistResource.Uri;
+
+            lblAlbum.Text = track.AlbumResource.Name;
+            lblAlbum.Tag = track.AlbumResource.Uri;
+
+            SpotifyUri uri = track.TrackResource.ParseUri();
+
+            //trackInfoBox.Text = $@"Track Info - {uri.Id}";
+
+            picAlbum.Image = await track.GetAlbumArtAsync(AlbumArtSize.Size160);
+        }
+
+        public void UpdatePlayingStatus(bool playing)
+        {
+            lblArtist.Text = playing.ToString();
+        }
+
+        private void _spotify_OnVolumeChange(object sender, VolumeChangeEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => _spotify_OnVolumeChange(sender, e)));
+                return;
+            }
+            //volumeLabel.Text = (e.NewVolume * 100).ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void _spotify_OnTrackTimeChange(object sender, TrackTimeChangeEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => _spotify_OnTrackTimeChange(sender, e)));
+                return;
+            }
+            lblTime.Text = $@"{FormatTime(e.TrackTime)}/{FormatTime(_currentTrack.Length)}";
+            if (e.TrackTime < _currentTrack.Length)
+                progressTime2.Value = (int)e.TrackTime;
+        }
+
+        private static String FormatTime(double sec)
+        {
+            TimeSpan span = TimeSpan.FromSeconds(sec);
+            String secs = span.Seconds.ToString(), mins = span.Minutes.ToString();
+            if (secs.Length < 2)
+                secs = "0" + secs;
+            return mins + ":" + secs;
+        }
+
+        private void _spotify_OnTrackChange(object sender, TrackChangeEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => _spotify_OnTrackChange(sender, e)));
+                return;
+            }
+            UpdateTrack(e.NewTrack);
+        }
+
+        private void _spotify_OnPlayStateChange(object sender, PlayStateEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => _spotify_OnPlayStateChange(sender, e)));
+                return;
+            }
+            UpdatePlayingStatus(e.Playing);
+        }
+
+        private void bunifuCustomLabel3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
