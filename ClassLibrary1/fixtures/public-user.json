@@ -1,9 +1,9 @@
 ﻿{
     "external_urls": {
-        "spotify": "https://open.spotify.com/user/wizzler"
+        "spotify": "https://open.spotify.com/user/118620057"
     },
-    "href": "https://api.spotify.com/v1/users/wizzler",
-    "id": "wizzler",
+    "href": "https://api.spotify.com/v1/users/118620057",
+    "id": "118620057",
     "type": "user",
-    "uri": "spotify:user:wizzler"
+    "uri": "spotify:user:118620057"
 }
