@@ -55,11 +55,7 @@ namespace SpotifyForms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you want to quit?", "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
-            {
-                Application.Exit();
-            }            
+           
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
@@ -201,7 +197,7 @@ namespace SpotifyForms
 
         private void txtSearch_OnTextChange(object sender, EventArgs e)
         {
-           
+            BackColor = System.Drawing.Color.White;
         }
 
         private async void bunifuImageButton1_Click(object sender, EventArgs e)
@@ -371,6 +367,15 @@ namespace SpotifyForms
 
             if (status.Track != null) //Update track infos
                 UpdateTrack(status.Track);
+        }
+
+        private void bunifuImageButton4_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to quit?", "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

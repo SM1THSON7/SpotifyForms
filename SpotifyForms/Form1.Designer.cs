@@ -51,7 +51,6 @@
             this.lblSettings = new ns1.BunifuCustomLabel();
             this.txtSearch = new ns1.BunifuTextbox();
             this.accountLabel = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.avatarPictureBox = new System.Windows.Forms.PictureBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.lblLogin = new ns1.BunifuCustomLabel();
@@ -71,6 +70,7 @@
             this.pnlBrowse = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblConnect = new ns1.BunifuCustomLabel();
+            this.bunifuImageButton4 = new ns1.BunifuImageButton();
             this.pnlNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
@@ -83,6 +83,7 @@
             this.pnlMusic.SuspendLayout();
             this.pnlPlaylists.SuspendLayout();
             this.pnlBrowse.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlNavigation
@@ -145,7 +146,7 @@
             this.lblAlbum.AutoSize = true;
             this.lblAlbum.BackColor = System.Drawing.Color.Black;
             this.lblAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlbum.ForeColor = System.Drawing.Color.White;
+            this.lblAlbum.ForeColor = System.Drawing.Color.DarkGray;
             this.lblAlbum.Location = new System.Drawing.Point(3, 670);
             this.lblAlbum.Name = "lblAlbum";
             this.lblAlbum.Size = new System.Drawing.Size(0, 17);
@@ -403,11 +404,11 @@
             // 
             // pnlBanner
             // 
+            this.pnlBanner.Controls.Add(this.bunifuImageButton4);
             this.pnlBanner.Controls.Add(this.lblConnect);
             this.pnlBanner.Controls.Add(this.lblSettings);
             this.pnlBanner.Controls.Add(this.txtSearch);
             this.pnlBanner.Controls.Add(this.accountLabel);
-            this.pnlBanner.Controls.Add(this.btnClose);
             this.pnlBanner.Controls.Add(this.avatarPictureBox);
             this.pnlBanner.Controls.Add(this.emailLabel);
             this.pnlBanner.Controls.Add(this.lblLogin);
@@ -454,19 +455,6 @@
             this.accountLabel.Size = new System.Drawing.Size(0, 17);
             this.accountLabel.TabIndex = 8;
             this.accountLabel.Visible = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(656, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(31, 26);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // avatarPictureBox
             // 
@@ -676,11 +664,25 @@
             this.lblConnect.Text = "Connect";
             this.lblConnect.Click += new System.EventHandler(this.lblConnect_Click);
             // 
+            // bunifuImageButton4
+            // 
+            this.bunifuImageButton4.BackColor = System.Drawing.Color.Red;
+            this.bunifuImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.Image")));
+            this.bunifuImageButton4.ImageActive = null;
+            this.bunifuImageButton4.Location = new System.Drawing.Point(666, 3);
+            this.bunifuImageButton4.Name = "bunifuImageButton4";
+            this.bunifuImageButton4.Size = new System.Drawing.Size(21, 22);
+            this.bunifuImageButton4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton4.TabIndex = 12;
+            this.bunifuImageButton4.TabStop = false;
+            this.bunifuImageButton4.Zoom = 10;
+            this.bunifuImageButton4.Click += new System.EventHandler(this.bunifuImageButton4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(926, 806);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlBanner);
@@ -690,6 +692,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Spotify";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlNavigation.ResumeLayout(false);
             this.pnlNavigation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlbum)).EndInit();
@@ -707,6 +710,7 @@
             this.pnlPlaylists.ResumeLayout(false);
             this.pnlBrowse.ResumeLayout(false);
             this.pnlBrowse.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -718,7 +722,6 @@
         private System.Windows.Forms.Panel pnlBanner;
         private ns1.BunifuFlatButton btnBrowse;
         private ns1.BunifuFlatButton btnRadio;
-        private System.Windows.Forms.Button btnClose;
         private ns1.BunifuFlatButton bunifuFlatButton2;
         private ns1.BunifuFlatButton bunifuFlatButton1;
         private System.Windows.Forms.Panel pnlContainer;
@@ -755,6 +758,7 @@
         private ns1.BunifuCustomLabel lblTime;
         private System.Windows.Forms.ProgressBar progressBar1;
         private ns1.BunifuCustomLabel lblConnect;
+        private ns1.BunifuImageButton bunifuImageButton4;
     }
 }
 
