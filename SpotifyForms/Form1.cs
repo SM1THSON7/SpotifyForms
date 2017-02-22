@@ -14,6 +14,7 @@ using SpotifyAPI.Local;
 using SpotifyAPI.Local.Enums;
 using SpotifyAPI.Local.Models;
 using Image = System.Drawing.Image;
+using System.Diagnostics;
 
 
 namespace SpotifyForms
@@ -27,8 +28,10 @@ namespace SpotifyForms
         private PrivateProfile _profile;
         private List<FullTrack> _savedTracks;
         private List<SimplePlaylist> _playlists;
+        bool playPause = false;
 
-      
+        
+
 
         public Form1()
         {
@@ -37,15 +40,22 @@ namespace SpotifyForms
             pnlRadio.Visible = false;
             pnlPlaylists.Visible = false;
             pnlMusic.Visible = false;
+
+            _spotifyLocal = new SpotifyLocalAPI();
+            _spotifyLocal.OnPlayStateChange += _spotify_OnPlayStateChange;
+            _spotifyLocal.OnTrackChange += _spotify_OnTrackChange;
+            _spotifyLocal.OnTrackTimeChange += _spotify_OnTrackTimeChange;
+            _spotifyLocal.OnVolumeChange += _spotify_OnVolumeChange;
+            //_spotify.SynchronizingObject = this;
+
+            lblArtist.Click += (sender, args) => Process.Start(lblArtist.Tag.ToString());
+            lblAlbum.Click += (sender, args) => Process.Start(lblAlbum.Tag.ToString());
+            lblTitle.Click += (sender, args) => Process.Start(lblTitle.Tag.ToString());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you want to quit?", "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
-            {
-                Application.Exit();
-            }            
+           
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
@@ -187,12 +197,24 @@ namespace SpotifyForms
 
         private void txtSearch_OnTextChange(object sender, EventArgs e)
         {
-           
+            BackColor = System.Drawing.Color.White;
         }
 
         private async void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            await _spotifyLocal.Play();
+            
+            
+
+            if (!playPause)
+            {
+                await _spotifyLocal.Play();
+            }
+            else
+            {
+                await _spotifyLocal.Pause();
+            }
+
+            playPause = !playPause;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -290,6 +312,70 @@ namespace SpotifyForms
         private void bunifuCustomLabel3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblConnect_Click(object sender, EventArgs e)
+        {
+            Connect();
+        }
+
+        public void Connect()
+        {
+            if (!SpotifyLocalAPI.IsSpotifyRunning())
+            {
+                MessageBox.Show(@"Spotify isn't running!");
+               DialogResult dr = MessageBox.Show("Do you want to open Spotify?", "Open Spotify?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+
+                }
+                return;
+            }
+            if (!SpotifyLocalAPI.IsSpotifyWebHelperRunning())
+            {
+                MessageBox.Show(@"SpotifyWebHelper isn't running!");
+                return;
+            }
+
+            bool successful = _spotifyLocal.Connect();
+            if (successful)
+            {
+                lblConnect.Text = @"Connection to Spotify successful";
+                lblConnect.Enabled = false;
+                UpdateInfos();
+                _spotifyLocal.ListenForEvents = true;
+            }
+            else
+            {
+                DialogResult res = MessageBox.Show(@"Couldn't connect to the spotify client. Retry?", @"Spotify", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                    Connect();
+            }
+        }
+
+        public void UpdateInfos()
+        {
+            StatusResponse status = _spotifyLocal.GetStatus();
+            if (status == null)
+                return;
+
+            //Basic Spotify Infos
+            UpdatePlayingStatus(status.Playing);
+            //clientVersionLabel.Text = status.ClientVersion;
+            //versionLabel.Text = status.Version.ToString();
+            //repeatShuffleLabel.Text = status.Repeat + @" and " + status.Shuffle;
+
+            if (status.Track != null) //Update track infos
+                UpdateTrack(status.Track);
+        }
+
+        private void bunifuImageButton4_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to quit?", "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
