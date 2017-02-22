@@ -29,8 +29,7 @@ namespace SpotifyForms
         public Form1()
         {
             InitializeComponent();
-            pnlBrowse.Visible = true;
-            pnlMusic.Visible = false;
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -44,12 +43,18 @@ namespace SpotifyForms
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-
+            pnlPlaylists.Visible = true;
+            pnlBrowse.Visible = false;
+            pnlMusic.Visible = false;
+            pnlRadio.Visible = false;
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             pnlMusic.Visible = true;
+            pnlBrowse.Visible = false;            
+            pnlPlaylists.Visible = false;
+            pnlRadio.Visible = false;
 
         }
 
@@ -57,11 +62,15 @@ namespace SpotifyForms
         {
             pnlBrowse.Visible = true;
             pnlMusic.Visible = false;
+            pnlPlaylists.Visible = false;
+            pnlRadio.Visible = false;
         }
 
         private void lblLogin_Click(object sender, EventArgs e)
         {
             Task.Run(() => RunAuthentication());
+
+            lblLogin.Visible = false;
         }
 
         private async void RunAuthentication()
@@ -84,6 +93,7 @@ namespace SpotifyForms
 
             if (_spotify == null)
                 return;
+            
 
             InitialSetup();
         }
@@ -155,6 +165,22 @@ namespace SpotifyForms
             return list;
         }
 
+        private void btnRadio_Click(object sender, EventArgs e)
+        {
+            pnlBrowse.Visible = false;
+            pnlMusic.Visible = false;
+            pnlPlaylists.Visible = false;
+            pnlRadio.Visible = true;
+        }
 
+        private void pnlRadio_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSearch_OnTextChange(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

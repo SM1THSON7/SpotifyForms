@@ -29,47 +29,57 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlNavigation = new System.Windows.Forms.Panel();
             this.bunifuFlatButton3 = new ns1.BunifuFlatButton();
             this.bunifuFlatButton2 = new ns1.BunifuFlatButton();
             this.bunifuFlatButton1 = new ns1.BunifuFlatButton();
             this.btnBrowse = new ns1.BunifuFlatButton();
             this.btnRadio = new ns1.BunifuFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblLogin = new ns1.BunifuCustomLabel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.pnlBrowse = new System.Windows.Forms.Panel();
-            this.pnlMusic = new System.Windows.Forms.Panel();
-            this.savedTracksCountLabel = new System.Windows.Forms.Label();
-            this.playlistsCountLabel = new System.Windows.Forms.Label();
-            this.playlistsListBox = new System.Windows.Forms.ListBox();
-            this.lstMusic = new System.Windows.Forms.ListView();
-            this.displayNameLabel = new System.Windows.Forms.Label();
-            this.countryLabel = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
+            this.pnlBanner = new System.Windows.Forms.Panel();
             this.accountLabel = new System.Windows.Forms.Label();
             this.avatarPictureBox = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pnlBrowse.SuspendLayout();
-            this.pnlMusic.SuspendLayout();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.lblLogin = new ns1.BunifuCustomLabel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.displayNameLabel = new System.Windows.Forms.Label();
+            this.pnlContainer = new System.Windows.Forms.Panel();
+            this.pnlBrowse = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlRadio = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pnlMusic = new System.Windows.Forms.Panel();
+            this.countryLabel = new System.Windows.Forms.Label();
+            this.playlistsCountLabel = new System.Windows.Forms.Label();
+            this.savedTracksCountLabel = new System.Windows.Forms.Label();
+            this.pnlPlaylists = new System.Windows.Forms.Panel();
+            this.playlistsListBox = new System.Windows.Forms.ListBox();
+            this.lstMusic = new System.Windows.Forms.ListBox();
+            this.txtSearch = new ns1.BunifuTextbox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pnlNavigation.SuspendLayout();
+            this.pnlBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).BeginInit();
+            this.pnlContainer.SuspendLayout();
+            this.pnlBrowse.SuspendLayout();
+            this.pnlRadio.SuspendLayout();
+            this.pnlMusic.SuspendLayout();
+            this.pnlPlaylists.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlNavigation
             // 
-            this.panel1.Controls.Add(this.bunifuFlatButton3);
-            this.panel1.Controls.Add(this.bunifuFlatButton2);
-            this.panel1.Controls.Add(this.bunifuFlatButton1);
-            this.panel1.Controls.Add(this.btnBrowse);
-            this.panel1.Controls.Add(this.btnRadio);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 532);
-            this.panel1.TabIndex = 0;
+            this.pnlNavigation.Controls.Add(this.bunifuFlatButton3);
+            this.pnlNavigation.Controls.Add(this.bunifuFlatButton2);
+            this.pnlNavigation.Controls.Add(this.bunifuFlatButton1);
+            this.pnlNavigation.Controls.Add(this.btnBrowse);
+            this.pnlNavigation.Controls.Add(this.btnRadio);
+            this.pnlNavigation.Controls.Add(this.panel3);
+            this.pnlNavigation.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNavigation.Location = new System.Drawing.Point(0, 0);
+            this.pnlNavigation.Name = "pnlNavigation";
+            this.pnlNavigation.Size = new System.Drawing.Size(236, 532);
+            this.pnlNavigation.TabIndex = 0;
             // 
             // bunifuFlatButton3
             // 
@@ -253,6 +263,7 @@
             this.btnRadio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRadio.Textcolor = System.Drawing.Color.White;
             this.btnRadio.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRadio.Click += new System.EventHandler(this.btnRadio_Click);
             // 
             // panel3
             // 
@@ -263,130 +274,20 @@
             this.panel3.Size = new System.Drawing.Size(241, 100);
             this.panel3.TabIndex = 0;
             // 
-            // panel2
+            // pnlBanner
             // 
-            this.panel2.Controls.Add(this.accountLabel);
-            this.panel2.Controls.Add(this.avatarPictureBox);
-            this.panel2.Controls.Add(this.emailLabel);
-            this.panel2.Controls.Add(this.lblLogin);
-            this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.displayNameLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(236, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(690, 100);
-            this.panel2.TabIndex = 1;
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(600, 9);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(55, 20);
-            this.lblLogin.TabIndex = 1;
-            this.lblLogin.Text = "Login";
-            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btnClose.Location = new System.Drawing.Point(661, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(29, 26);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // pnlBrowse
-            // 
-            this.pnlBrowse.Controls.Add(this.pnlMusic);
-            this.pnlBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBrowse.Location = new System.Drawing.Point(236, 100);
-            this.pnlBrowse.Name = "pnlBrowse";
-            this.pnlBrowse.Size = new System.Drawing.Size(690, 432);
-            this.pnlBrowse.TabIndex = 2;
-            // 
-            // pnlMusic
-            // 
-            this.pnlMusic.Controls.Add(this.countryLabel);
-            this.pnlMusic.Controls.Add(this.lstMusic);
-            this.pnlMusic.Controls.Add(this.playlistsListBox);
-            this.pnlMusic.Controls.Add(this.playlistsCountLabel);
-            this.pnlMusic.Controls.Add(this.savedTracksCountLabel);
-            this.pnlMusic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMusic.Location = new System.Drawing.Point(0, 0);
-            this.pnlMusic.Name = "pnlMusic";
-            this.pnlMusic.Size = new System.Drawing.Size(690, 432);
-            this.pnlMusic.TabIndex = 0;
-            // 
-            // savedTracksCountLabel
-            // 
-            this.savedTracksCountLabel.AutoSize = true;
-            this.savedTracksCountLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.savedTracksCountLabel.Location = new System.Drawing.Point(61, 90);
-            this.savedTracksCountLabel.Name = "savedTracksCountLabel";
-            this.savedTracksCountLabel.Size = new System.Drawing.Size(46, 17);
-            this.savedTracksCountLabel.TabIndex = 1;
-            this.savedTracksCountLabel.Text = "label1";
-            // 
-            // playlistsCountLabel
-            // 
-            this.playlistsCountLabel.AutoSize = true;
-            this.playlistsCountLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.playlistsCountLabel.Location = new System.Drawing.Point(112, 193);
-            this.playlistsCountLabel.Name = "playlistsCountLabel";
-            this.playlistsCountLabel.Size = new System.Drawing.Size(46, 17);
-            this.playlistsCountLabel.TabIndex = 2;
-            this.playlistsCountLabel.Text = "label1";
-            // 
-            // playlistsListBox
-            // 
-            this.playlistsListBox.FormattingEnabled = true;
-            this.playlistsListBox.ItemHeight = 16;
-            this.playlistsListBox.Location = new System.Drawing.Point(547, 174);
-            this.playlistsListBox.Name = "playlistsListBox";
-            this.playlistsListBox.Size = new System.Drawing.Size(120, 84);
-            this.playlistsListBox.TabIndex = 3;
-            // 
-            // lstMusic
-            // 
-            this.lstMusic.Location = new System.Drawing.Point(534, 23);
-            this.lstMusic.Name = "lstMusic";
-            this.lstMusic.Size = new System.Drawing.Size(121, 97);
-            this.lstMusic.TabIndex = 4;
-            this.lstMusic.UseCompatibleStateImageBehavior = false;
-            // 
-            // displayNameLabel
-            // 
-            this.displayNameLabel.AutoSize = true;
-            this.displayNameLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.displayNameLabel.Location = new System.Drawing.Point(101, 12);
-            this.displayNameLabel.Name = "displayNameLabel";
-            this.displayNameLabel.Size = new System.Drawing.Size(0, 17);
-            this.displayNameLabel.TabIndex = 5;
-            // 
-            // countryLabel
-            // 
-            this.countryLabel.AutoSize = true;
-            this.countryLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.countryLabel.Location = new System.Drawing.Point(250, 113);
-            this.countryLabel.Name = "countryLabel";
-            this.countryLabel.Size = new System.Drawing.Size(46, 17);
-            this.countryLabel.TabIndex = 6;
-            this.countryLabel.Text = "label2";
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.emailLabel.Location = new System.Drawing.Point(101, 39);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(0, 17);
-            this.emailLabel.TabIndex = 7;
+            this.pnlBanner.Controls.Add(this.txtSearch);
+            this.pnlBanner.Controls.Add(this.accountLabel);
+            this.pnlBanner.Controls.Add(this.btnClose);
+            this.pnlBanner.Controls.Add(this.avatarPictureBox);
+            this.pnlBanner.Controls.Add(this.emailLabel);
+            this.pnlBanner.Controls.Add(this.lblLogin);
+            this.pnlBanner.Controls.Add(this.displayNameLabel);
+            this.pnlBanner.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBanner.Location = new System.Drawing.Point(236, 0);
+            this.pnlBanner.Name = "pnlBanner";
+            this.pnlBanner.Size = new System.Drawing.Size(690, 100);
+            this.pnlBanner.TabIndex = 1;
             // 
             // accountLabel
             // 
@@ -396,6 +297,7 @@
             this.accountLabel.Name = "accountLabel";
             this.accountLabel.Size = new System.Drawing.Size(0, 17);
             this.accountLabel.TabIndex = 8;
+            this.accountLabel.Visible = false;
             // 
             // avatarPictureBox
             // 
@@ -406,54 +308,266 @@
             this.avatarPictureBox.TabIndex = 9;
             this.avatarPictureBox.TabStop = false;
             // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.emailLabel.Location = new System.Drawing.Point(101, 39);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(0, 17);
+            this.emailLabel.TabIndex = 7;
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.White;
+            this.lblLogin.Location = new System.Drawing.Point(595, 9);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(55, 20);
+            this.lblLogin.TabIndex = 1;
+            this.lblLogin.Text = "Login";
+            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnClose.Location = new System.Drawing.Point(656, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 26);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // displayNameLabel
+            // 
+            this.displayNameLabel.AutoSize = true;
+            this.displayNameLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.displayNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayNameLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.displayNameLabel.Location = new System.Drawing.Point(101, 12);
+            this.displayNameLabel.Name = "displayNameLabel";
+            this.displayNameLabel.Size = new System.Drawing.Size(0, 17);
+            this.displayNameLabel.TabIndex = 5;
+            // 
+            // pnlContainer
+            // 
+            this.pnlContainer.Controls.Add(this.pnlRadio);
+            this.pnlContainer.Controls.Add(this.pnlMusic);
+            this.pnlContainer.Controls.Add(this.pnlPlaylists);
+            this.pnlContainer.Controls.Add(this.pnlBrowse);
+            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContainer.Location = new System.Drawing.Point(236, 100);
+            this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Size = new System.Drawing.Size(690, 432);
+            this.pnlContainer.TabIndex = 2;
+            // 
+            // pnlBrowse
+            // 
+            this.pnlBrowse.Controls.Add(this.label1);
+            this.pnlBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBrowse.Location = new System.Drawing.Point(0, 0);
+            this.pnlBrowse.Name = "pnlBrowse";
+            this.pnlBrowse.Size = new System.Drawing.Size(690, 432);
+            this.pnlBrowse.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(357, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Browse";
+            // 
+            // pnlRadio
+            // 
+            this.pnlRadio.Controls.Add(this.listBox1);
+            this.pnlRadio.Controls.Add(this.label2);
+            this.pnlRadio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlRadio.Location = new System.Drawing.Point(0, 0);
+            this.pnlRadio.Name = "pnlRadio";
+            this.pnlRadio.Size = new System.Drawing.Size(690, 432);
+            this.pnlRadio.TabIndex = 0;
+            this.pnlRadio.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRadio_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(6, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Radio";
+            // 
+            // pnlMusic
+            // 
+            this.pnlMusic.Controls.Add(this.lstMusic);
+            this.pnlMusic.Controls.Add(this.playlistsCountLabel);
+            this.pnlMusic.Controls.Add(this.savedTracksCountLabel);
+            this.pnlMusic.Controls.Add(this.countryLabel);
+            this.pnlMusic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMusic.Location = new System.Drawing.Point(0, 0);
+            this.pnlMusic.Name = "pnlMusic";
+            this.pnlMusic.Size = new System.Drawing.Size(690, 432);
+            this.pnlMusic.TabIndex = 0;
+            // 
+            // countryLabel
+            // 
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.countryLabel.Location = new System.Drawing.Point(60, 406);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(46, 17);
+            this.countryLabel.TabIndex = 6;
+            this.countryLabel.Text = "label2";
+            // 
+            // playlistsCountLabel
+            // 
+            this.playlistsCountLabel.AutoSize = true;
+            this.playlistsCountLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.playlistsCountLabel.Location = new System.Drawing.Point(112, 406);
+            this.playlistsCountLabel.Name = "playlistsCountLabel";
+            this.playlistsCountLabel.Size = new System.Drawing.Size(46, 17);
+            this.playlistsCountLabel.TabIndex = 2;
+            this.playlistsCountLabel.Text = "label1";
+            // 
+            // savedTracksCountLabel
+            // 
+            this.savedTracksCountLabel.AutoSize = true;
+            this.savedTracksCountLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.savedTracksCountLabel.Location = new System.Drawing.Point(8, 406);
+            this.savedTracksCountLabel.Name = "savedTracksCountLabel";
+            this.savedTracksCountLabel.Size = new System.Drawing.Size(46, 17);
+            this.savedTracksCountLabel.TabIndex = 1;
+            this.savedTracksCountLabel.Text = "label1";
+            // 
+            // pnlPlaylists
+            // 
+            this.pnlPlaylists.Controls.Add(this.playlistsListBox);
+            this.pnlPlaylists.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPlaylists.Location = new System.Drawing.Point(0, 0);
+            this.pnlPlaylists.Name = "pnlPlaylists";
+            this.pnlPlaylists.Size = new System.Drawing.Size(690, 432);
+            this.pnlPlaylists.TabIndex = 7;
+            // 
+            // playlistsListBox
+            // 
+            this.playlistsListBox.BackColor = System.Drawing.Color.Black;
+            this.playlistsListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playlistsListBox.ForeColor = System.Drawing.Color.White;
+            this.playlistsListBox.FormattingEnabled = true;
+            this.playlistsListBox.ItemHeight = 16;
+            this.playlistsListBox.Location = new System.Drawing.Point(30, 23);
+            this.playlistsListBox.Name = "playlistsListBox";
+            this.playlistsListBox.Size = new System.Drawing.Size(625, 388);
+            this.playlistsListBox.TabIndex = 0;
+            // 
+            // lstMusic
+            // 
+            this.lstMusic.BackColor = System.Drawing.Color.Black;
+            this.lstMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstMusic.ForeColor = System.Drawing.Color.White;
+            this.lstMusic.FormattingEnabled = true;
+            this.lstMusic.ItemHeight = 16;
+            this.lstMusic.Location = new System.Drawing.Point(11, 35);
+            this.lstMusic.Name = "lstMusic";
+            this.lstMusic.Size = new System.Drawing.Size(657, 372);
+            this.lstMusic.TabIndex = 2;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.Black;
+            this.txtSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtSearch.BackgroundImage")));
+            this.txtSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.txtSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearch.Icon")));
+            this.txtSearch.Location = new System.Drawing.Point(490, 66);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(196, 30);
+            this.txtSearch.TabIndex = 2;
+            this.txtSearch.text = "";
+            this.txtSearch.OnTextChange += new System.EventHandler(this.txtSearch_OnTextChange);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(81, 55);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(469, 324);
+            this.listBox1.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(926, 532);
-            this.Controls.Add(this.pnlBrowse);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlContainer);
+            this.Controls.Add(this.pnlBanner);
+            this.Controls.Add(this.pnlNavigation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Spotify";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlNavigation.ResumeLayout(false);
+            this.pnlBanner.ResumeLayout(false);
+            this.pnlBanner.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
+            this.pnlContainer.ResumeLayout(false);
             this.pnlBrowse.ResumeLayout(false);
+            this.pnlBrowse.PerformLayout();
+            this.pnlRadio.ResumeLayout(false);
+            this.pnlRadio.PerformLayout();
             this.pnlMusic.ResumeLayout(false);
             this.pnlMusic.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
+            this.pnlPlaylists.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlNavigation;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlBanner;
         private ns1.BunifuFlatButton btnBrowse;
         private ns1.BunifuFlatButton btnRadio;
         private System.Windows.Forms.Button btnClose;
         private ns1.BunifuFlatButton bunifuFlatButton2;
         private ns1.BunifuFlatButton bunifuFlatButton1;
         private ns1.BunifuFlatButton bunifuFlatButton3;
-        private System.Windows.Forms.Panel pnlBrowse;
+        private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlMusic;
         private ns1.BunifuCustomLabel lblLogin;
         private System.Windows.Forms.Label savedTracksCountLabel;
         private System.Windows.Forms.Label playlistsCountLabel;
-        private System.Windows.Forms.ListView lstMusic;
-        private System.Windows.Forms.ListBox playlistsListBox;
         private System.Windows.Forms.Label accountLabel;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.Label displayNameLabel;
         private System.Windows.Forms.PictureBox avatarPictureBox;
+        private System.Windows.Forms.Panel pnlPlaylists;
+        private System.Windows.Forms.ListBox playlistsListBox;
+        private System.Windows.Forms.Panel pnlBrowse;
+        private System.Windows.Forms.Panel pnlRadio;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lstMusic;
+        private ns1.BunifuTextbox txtSearch;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
